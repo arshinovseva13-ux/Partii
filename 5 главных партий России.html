@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5 главных партий России</title>
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--tx:#1d1d1f;--mut:#6b6b70;--line:#e3e0d8;--acc:#1f3a5f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--card:#1b1f24;--tx:#ecebe8;--mut:#9a9aa2;--line:#2c3138;--acc:#8fb4e8}}
+:root[data-theme="dark"]{--bg:#121417;--card:#1b1f24;--tx:#ecebe8;--mut:#9a9aa2;--line:#2c3138;--acc:#8fb4e8}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 Georgia,"Times New Roman",serif}
+.wrap{max-width:720px;margin:0 auto;padding:24px 18px 60px}
+.kick{font:600 12px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+h1{font-size:34px;line-height:1.15;margin:10px 0 12px}
+.lead{color:var(--mut);font-size:19px;margin:0 0 14px}
+.by{font:14px system-ui,sans-serif;color:var(--mut);padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:26px}
+.by b{color:var(--tx)}
+h2{font-size:24px;margin:34px 0 10px}
+p{margin:0 0 14px}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.row{display:grid;grid-template-columns:110px 1fr 44px;gap:10px;align-items:center;margin:9px 0;font:14px system-ui,sans-serif}
+.bar{height:16px;background:var(--line);border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:8px;transition:width 1s ease}
+.row span:last-child{text-align:right;font-weight:600}
+.note{font:13px system-ui,sans-serif;color:var(--mut)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;margin-top:6px}
+.tabs button{flex:0 0 auto;font:600 14px system-ui,sans-serif;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--tx);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;border-top:5px solid var(--c)}
+.panel h3{margin:0 0 4px;font-size:24px}
+.panel .sub{font:14px system-ui,sans-serif;color:var(--mut);margin-bottom:14px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.35 system-ui,sans-serif}
+.facts small{display:block;color:var(--mut);font-size:12px;margin-bottom:2px}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:10px}
+.quiz button{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--tx);font:15px system-ui,sans-serif;cursor:pointer}
+.quiz button.ok{border-color:#2e9d57;background:rgba(46,157,87,.15)}
+.quiz button.no{border-color:#c0392b;background:rgba(192,57,43,.15)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font:13px system-ui,sans-serif;color:var(--mut)}
+@media(max-width:480px){h1{font-size:28px}.row{grid-template-columns:92px 1fr 40px}.facts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kick">Политика · Россия · 2026</div>
+<h1>Пять главных партий России</h1>
+<p class="lead">Кто представлен в Государственной думе девятого созыва, чего хотят эти партии и чем они отличаются друг от друга.</p>
+<div class="by">Автор: <b>Всеволод Аршинов</b> · Октябрь 2026</div>
+
+<p>Политическая система России многопартийна по форме, но в парламенте реально представлено небольшое число сил. По итогам выборов в Госдуму 18–20 сентября 2026 года мандаты получили пять партий. Ниже — краткий путеводитель по каждой из них.</p>
+
+<h2>Как распределились мандаты</h2>
+<div class="chart" id="chart"></div>
+<p class="note">Всего 450 мандатов. По данным ЦИК, оглашённым 25 сентября 2026 года: «Единая Россия» — 349, КПРФ — 37, ЛДПР — 23, «Новые люди» — 19, «Справедливая Россия» — 17; ещё 1 мандат у «Родины» и 4 у самовыдвиженцев. Явка составила около 59,8%.</p>
+
+<h2>Знакомьтесь с партиями</h2>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="panel" id="panel" role="tabpanel"></div>
+
+<h2>Что общего и в чём разница</h2>
+<p>«Единая Россия» остаётся доминирующей силой: она выигрывает и по партийным спискам, и в большинстве одномандатных округов. КПРФ и «Справедливая Россия» представляют левый фланг, но с разной риторикой — первая опирается на советское наследие, вторая на социал-демократию. ЛДПР делает ставку на яркий популизм и патриотическую повестку, а «Новые люди» — самая молодая партия — говорит о бизнесе, технологиях и свободе предпринимательства.</p>
+<p>Важно помнить: итоговые проценты и расстановка сил могут уточняться официальными данными, а программы партий меняются от кампании к кампании. Лучше всего сверяться с их официальными программами и сайтом ЦИК.</p>
+
+<h2>Мини-тест</h2>
+<div class="quiz" id="quiz"></div>
+
+<footer>© 2026 Всеволод Аршинов. Материал носит информационный характер. Источники: данные ЦИК России о результатах выборов в Госдуму 2026 года, открытые материалы партий.</footer>
+</div>
+
+<script>
+var P=[
+{n:"Единая Россия",s:"ЕР",c:"#2a6fdb",seats:349,pct:"57,8%",lead:"Дмитрий Медведев",yr:"2001",ide:"Консерватизм, «партия власти»",
+ t:"Крупнейшая партия страны и сторонник действующего политического курса. Образовалась в 2001 году в результате объединения «Единства» и «Отечества — Всей России». Делает упор на социальные программы, поддержку семей, патриотизм и государственную стабильность. Имеет большинство в Госдуме и в региональных парламентах."},
+{n:"КПРФ",s:"КПРФ",c:"#d62828",seats:37,pct:"13,8%",lead:"Геннадий Зюганов",yr:"1993",ide:"Коммунизм, левая политика",
+ t:"Крупнейшая партия оппозиционного спектра в парламенте и наследница советской традиции. Выступает за усиление роли государства в экономике, национализацию ключевых отраслей, бесплатное образование и медицину. Электорат — в основном старшее поколение и жители промышленных регионов."},
+{n:"ЛДПР",s:"ЛДПР",c:"#2f9e9e",seats:23,pct:"9,0%",lead:"Леонид Слуцкий",yr:"1989",ide:"Национал-патриотизм, популизм",
+ t:"Одна из старейших партий России, основанная Владимиром Жириновским. Известна резкой риторикой, патриотическими лозунгами и яркими публичными выступлениями. После смерти основателя в 2022 году партию возглавляет Леонид Слуцкий; на выборах 2026 года ЛДПР укрепила позиции."},
+{n:"Новые люди",s:"НЛ",c:"#1aa5a0",seats:19,pct:"8,0%",lead:"Алексей Нечаев",yr:"2020",ide:"Либерализм, предпринимательство",
+ t:"Самая молодая из парламентских партий. Создана в 2020 году, впервые прошла в Госдуму в 2021-м. Делает ставку на малый и средний бизнес, цифровизацию, снижение административной нагрузки и свежие лица в политике. Ориентирована на городскую, более молодую аудиторию."},
+{n:"Справедливая Россия",s:"СР",c:"#e0a100",seats:17,pct:"4,5%",lead:"Сергей Миронов",yr:"2006",ide:"Социал-демократия, левоцентризм",
+ t:"Партия образована в 2006 году, а в 2021 году объединилась с «Патриотами России» и «За правду». Выступает за социальную справедливость, прогрессивное налогообложение и защиту прав работников. На выборах 2026 года получила меньше 5% по спискам, но прошла в Думу благодаря одномандатным округам."}
+];
+var ch=document.getElementById("chart");
+P.forEach(function(p){var r=document.createElement("div");r.className="row";
+r.innerHTML='<span>'+p.n+'</span><div class="bar"><i style="background:'+p.c+'" data-w="'+(p.seats/349*100)+'"></i></div><span>'+p.seats+'</span>';ch.appendChild(r)});
+setTimeout(function(){document.querySelectorAll(".bar i").forEach(function(i){i.style.width=i.dataset.w+"%"})},150);
+
+var tabs=document.getElementById("tabs"),panel=document.getElementById("panel");
+function show(k){
+ var p=P[k];panel.style.setProperty("--c",p.c);
+ panel.innerHTML='<h3>'+p.n+'</h3><div class="sub">'+p.ide+'</div><p>'+p.t+'</p><div class="facts"><div><small>Лидер</small>'+p.lead+'</div><div><small>Основана</small>'+p.yr+'</div><div><small>Мандаты в Думе</small>'+p.seats+' из 450</div><div><small>Голоса по спискам*</small>'+p.pct+'</div></div><p class="note">* предварительные данные ЦИК</p>';
+ Array.prototype.forEach.call(tabs.children,function(b,i){b.setAttribute("aria-selected",i===k)});
+}
+P.forEach(function(p,i){var b=document.createElement("button");b.textContent=p.s;b.setAttribute("role","tab");b.onclick=function(){show(i)};tabs.appendChild(b)});
+show(0);
+
+var Q=[
+{q:"Какая партия самая молодая из пяти?",a:["КПРФ","Новые люди","ЛДПР"],r:1},
+{q:"Какая партия набрала больше всех мандатов в 2026 году?",a:["Единая Россия","КПРФ","Справедливая Россия"],r:0},
+{q:"Кто возглавляет КПРФ?",a:["Сергей Миронов","Алексей Нечаев","Геннадий Зюганов"],r:2},
+{q:"Какая партия была основана в 1989 году?",a:["ЛДПР","Единая Россия","Справедливая Россия"],r:0}
+];
+var qi=0,sc=0,qz=document.getElementById("quiz");
+function ask(){
+ if(qi>=Q.length){qz.innerHTML='<b>Результат: '+sc+' из '+Q.length+'</b><br><br><button onclick="qi=0;sc=0;ask()">Пройти заново</button>';return}
+ var q=Q[qi];qz.innerHTML='<div class="note">Вопрос '+(qi+1)+' из '+Q.length+'</div><p><b>'+q.q+'</b></p>';
+ q.a.forEach(function(t,i){var b=document.createElement("button");b.textContent=t;
+  b.onclick=function(){var all=qz.querySelectorAll("button");all.forEach(function(x){x.disabled=true});
+   all[q.r].className="ok";if(i===q.r){sc++}else{b.className="no"}
+   setTimeout(function(){qi++;ask()},900)};qz.appendChild(b)});
+}
+ask();
+</script>
+</body>
+</html>
